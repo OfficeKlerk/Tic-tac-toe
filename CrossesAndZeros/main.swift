@@ -89,11 +89,11 @@ func playPvPGame(_ size: Int) {
     while !isEnd {
         printMap(map, size)
         print("Ходят \(team). Введите ваш ход")
-        print("строка (1–3): ", terminator: "")
+        print("строка (1–\(size)): ", terminator: "")
         
         //проверяем корректность ввода
         if let rowStr = readLine(), let row = Int(rowStr) {
-            print("столбец (1–3): ", terminator: "")
+            print("столбец (1–\(size)): ", terminator: "")
             if let colStr = readLine(), let col = Int(colStr) {
                 if !applyMove(&map, team: team, row: row - 1, col: col - 1, size) {
                     print("Некорректный ввод. Попробуйте снова")
@@ -144,9 +144,9 @@ func playPvEGame(_ size: Int) {
         if team == "X" {
             //игрок
             print("Ходит игрок. Введите ход")
-            print("строка (1–3): ", terminator: "")
+            print("строка (1–\(size)): ", terminator: "")
             if let rowStr = readLine(), let row = Int(rowStr) {
-                print("столбец (1–3): ", terminator: "")
+                print("столбец (1–\(size)): ", terminator: "")
                 if let colStr = readLine(), let col = Int(colStr) {
                     if !applyMove(&map, team: team, row: row - 1, col: col - 1, size) {
                         print("Некорректный ввод. Попробуйте снова")
